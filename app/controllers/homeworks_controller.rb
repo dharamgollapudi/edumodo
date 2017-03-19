@@ -6,6 +6,8 @@ class HomeworksController < ApplicationController
 
   def new
     @homework = current_user.homeworks.build
+    # TODO: limit with pagination
+    @students = Student.all
   end
 
   def create
@@ -25,6 +27,8 @@ class HomeworksController < ApplicationController
 
   def edit
     @homework = current_user.homeworks.find(params[:id])
+    # TODO: limit with pagination
+    @students = Student.all
   end
 
   def update

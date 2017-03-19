@@ -18,6 +18,8 @@ class HomeworksControllerTest < ActionController::TestCase
   test "should get new" do
     get :new
     assert_response :success
+    assert_not_nil assigns(:homework)
+    assert_not_nil assigns(:students)
   end
 
   test "should create homework" do
@@ -37,6 +39,8 @@ class HomeworksControllerTest < ActionController::TestCase
   test "should get edit" do
     get :edit, id: @homework
     assert_response :success
+    assert_not_nil assigns(:homework)
+    assert_not_nil assigns(:students)
   end
 
   test "should update homework" do

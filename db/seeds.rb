@@ -11,16 +11,33 @@ teacher = Teacher.find_or_create_by(email: "teacher@gmail.com") do |t|
   t.encrypted_password = Teacher.new.send(:password_digest, 'teacher')
 end
 
-Student.find_or_create_by(email: "student@gmail.com") do |s|
-  t.password =  'student',
-  t.encrypted_password = Student.new.send(:password_digest, 'student')
+if Student.count < 10
+  10.times do |i|
+    email = (i == 0) ? "student@gmail.com" : "student#{i}@gmail.com"
+    student = Student.find_or_initialize_by(email: email)
+    student.password =  'student'
+    student.encrypted_password = Student.new.send(:password_digest, 'student')
+    student.save
+  end
+end
+
+if Homework.count < 10
+  10.times do |i|
+    Homework.create(
+      teacher: teacher,
+      title: "Homework Title #{i}",
+      question: "Homework Question #{i}",
+      due_on: Time.now + 7.days
+    )
+  end
 end
 
 10.times do |i|
-  Homework.create(
-    teacher: teacher,
-    title: "Homework Title #{i}",
-    question: "Homework Question #{i}",
-    due_on: Time.now + 7.days
+  homework = Homework.order("RANDOM()").limit(1).first
+  student = Student.order("RANDOM()").limit(1).first
+
+  Assignment.find_or_create_by(
+    homework: homework,
+    student: student
   )
 end
