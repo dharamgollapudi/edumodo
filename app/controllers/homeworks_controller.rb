@@ -1,4 +1,6 @@
 class HomeworksController < ApplicationController
+  before_filter :require_teacher, except: :index
+
   def index
     # TODO: limit with pagination
     @homeworks = current_user.homeworks.order(:id)

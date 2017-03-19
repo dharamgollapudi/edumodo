@@ -4,4 +4,12 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :null_session
 
   before_action :authenticate_user!
+
+  private
+  def require_teacher
+    unless current_user.is_a?(Teacher)
+      flash[:error] = 'You need to be Teacher to access that functionality'
+      redirect_to root_url
+    end
+  end
 end

@@ -1,12 +1,18 @@
 require 'test_helper'
 
-class HomeworksControllerTest < ActionController::TestCase
+class HomeworksControllerAsTeacherTest < ActionController::TestCase
+  self.controller_class = HomeworksController
+
   include Devise::Test::ControllerHelpers
 
   setup do
     @homework = homeworks(:homework_one)
     @teacher = users(:teacher)
     sign_in(@teacher)
+  end
+
+  teardown do
+    sign_out(@teacher)
   end
 
   test "should get index" do
@@ -48,5 +54,4 @@ class HomeworksControllerTest < ActionController::TestCase
     assert_redirected_to homeworks_path
     assert_equal 'Your homework has been updated', flash[:notice]
   end
-
 end
