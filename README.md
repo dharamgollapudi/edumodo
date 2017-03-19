@@ -11,4 +11,29 @@ The safest and easiest way for educators to connect and collaborate with student
 5. [x] Teacher can see a list of latest submissions for a homework. UI is required.
 6. [x] Teacher can see all submission versions for a student for a homework.UI is required.
 
+##Setup:
+```
+git clone https://github.com/dharamgollapudi/edumodo.git
+cd edumodo
+bundle install
+bundle exec rake db:create
+bundle exec rake db:migrate
+bundle exec rake db:seed
+bundle exex rails s
+```
 
+##Testing:
+```
+git clone https://github.com/dharamgollapudi/edumodo.git
+cd edumodo
+bundle install
+bundle exec rake db:create
+bundle exec rake db:migrate
+bundle exec rake db:test:prepare
+bundle exex rake test
+```
+
+##Caveat:
+When you sign up, by default, it setups you up as `Student`. 
+The only way to override, for now, is changing it in database.
+In the next iteration, we should be able to select the type while signing up.

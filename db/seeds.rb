@@ -6,18 +6,26 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-teacher = Teacher.find_or_initialize_by(email: "teacher@gmail.com")
-teacher.password =  'teacher',
-teacher.encrypted_password = Teacher.new.send(:password_digest, 'teacher')
-teacher.save
+teacher = Teacher.find_by_email("teacher@gmail.com")
+unless teacher.present?
+  teacher = Teacher.new
+  teacher.email = "teacher@gmail.com"
+  teacher.password =  'teacher'
+  teacher.password_confirmation = 'teacher'
+  teacher.save
+end
 
 if Student.count < 10
   10.times do |i|
     email = (i == 0) ? "student@gmail.com" : "student#{i}@gmail.com"
-    student = Student.find_or_initialize_by(email: email)
-    student.password =  'student'
-    student.encrypted_password = Student.new.send(:password_digest, 'student')
-    student.save
+    student = Student.find_by_email(email)
+    unless student.present?
+      student = Student.new
+      student.email = email
+      student.password =  'student'
+      student.password_confirmation = 'student'
+      student.save
+    end
   end
 end
 
