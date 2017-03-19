@@ -9,6 +9,6 @@ The safest and easiest way for educators to connect and collaborate with student
 3. [x] Student can see all assigned homework. UI is required.
 4. [x] Student can submit a homework multiple times before the due date. UI is required.
 5. [x] Teacher can see a list of latest submissions for a homework. UI is required.
-6. [ ] Teacher can see all submission versions for a student for a homework.UI is required.
+6. [x] Teacher can see all submission versions for a student for a homework.UI is required.
 
 

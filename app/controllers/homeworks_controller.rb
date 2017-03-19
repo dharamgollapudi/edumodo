@@ -25,7 +25,13 @@ class HomeworksController < ApplicationController
 
   def show
     @homework = current_user.homeworks.find(params[:id])
-    @solutions = @homework.solutions_latest
+
+    if params[:student_id].present? && Student.exists?(params[:student_id])
+      @student = Student.find(params[:student_id])
+      @solutions = @homework.solutions_for_student(@student)
+    else
+      @solutions = @homework.solutions_latest
+    end
   end
 
   def edit
