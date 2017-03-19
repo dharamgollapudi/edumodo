@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  student: student
+  homework: homework_one
+  answer: MyString
+  version: 1
+
+two:
+  student: student
+  homework: homework_one
+  answer: MyString
+  version: 2

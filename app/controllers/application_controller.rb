@@ -12,4 +12,11 @@ class ApplicationController < ActionController::Base
       redirect_to root_url
     end
   end
+
+  def require_student
+    unless current_user.is_a?(Student)
+      flash[:error] = 'You need to be Student to access that functionality'
+      redirect_to root_url
+    end
+  end
 end
