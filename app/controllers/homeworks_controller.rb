@@ -25,6 +25,7 @@ class HomeworksController < ApplicationController
 
   def show
     @homework = current_user.homeworks.find(params[:id])
+    @solutions = @homework.solutions_latest
   end
 
   def edit

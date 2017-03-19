@@ -4,3 +4,22 @@
   <strong>Question:</strong> 
   <%= @homework.question %>
 </p>
+
+
+<table class="table table-bordered table-striped table-hover">
+  <thead>
+  <tr>
+    <th>Student Name</th>
+    <th>Latest Answer</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @solutions.each do |solution| %>
+    <tr>
+      <td><%= link_to solution.student.email, homework_path(solution.homework, student_id: solution.student.id) %></td>
+      <td><%= solution.answer %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

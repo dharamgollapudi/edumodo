@@ -27,7 +27,8 @@
         <td>
           <% if current_user.is_a?(Teacher) %>
             <%= link_to 'Edit', edit_homework_url(homework), class: 'btn btn-xs btn-default' %>
-          <% else %>
+            <%= link_to 'View Solutions', homework_url(homework), class: 'btn btn-xs btn-default' %>
+        <% else %>
             <% if homework.can_be_solved? %>
               <%= link_to 'Solve', new_homework_solution_url(homework), class: 'btn btn-default btn-xs btn-secondary' %>
             <% end %>

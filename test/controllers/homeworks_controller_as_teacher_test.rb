@@ -40,6 +40,7 @@ class HomeworksControllerAsTeacherTest < ActionController::TestCase
   test "should show homework" do
     get :show, id: @homework
     assert_response :success
+    assert_not_nil assigns(:solutions)
   end
 
   test "should get edit" do

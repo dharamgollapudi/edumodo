@@ -4,6 +4,8 @@ class Homework < ActiveRecord::Base
   has_many :assignments
   has_many :students, through: :assignments
 
+  has_many :solutions
+
   validates_presence_of :teacher, :title, :question, :due_on
 
   def can_be_solved?
