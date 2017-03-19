@@ -6,14 +6,21 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Teacher.create(
-  email: "teacher@gmail.com",
-  password: 'teacher',
-  encrypted_password: Teacher.new.send(:password_digest, 'teacher')
-)
+teacher = Teacher.find_or_create_by(email: "teacher@gmail.com") do |t|
+  t.password =  'teacher',
+  t.encrypted_password = Teacher.new.send(:password_digest, 'teacher')
+end
 
-Student.create(
-  email: "student@gmail.com",
-  password: 'student',
-  encrypted_password: Student.new.send(:password_digest, 'student')
-)
+Student.find_or_create_by(email: "student@gmail.com") do |s|
+  t.password =  'student',
+  t.encrypted_password = Student.new.send(:password_digest, 'student')
+end
+
+10.times do |i|
+  Homework.create(
+    teacher: teacher,
+    title: "Homework Title #{i}",
+    question: "Homework Question #{i}",
+    due_on: Time.now + 7.days
+  )
+end

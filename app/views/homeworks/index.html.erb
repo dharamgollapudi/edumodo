@@ -1,0 +1,35 @@
+<div class="row align-items-center">
+  <div class="col">
+    <h1 style="float:left;">Homeworks</h1>
+  </div>
+  <% if current_user.is_a?(Teacher) %>
+    <div class="col" style='float: right; margin: 24px 0px 0px 0px' >
+      <%= link_to 'New Homework', new_homework_path, method: 'get', class: 'btn btn-primary'%>
+    </div>
+  <% end %>
+</div>
+
+<div class="row">
+<table class="table table-bordered table-striped table-hover">
+  <thead>
+    <tr>
+      <th>Question</th>
+      <th>Due on</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @homeworks.each do |homework| %>
+      <tr>
+        <td><%= homework.title %></td>
+        <td><%= homework.due_on %></td>
+        <td>
+          <%= link_to 'Edit', edit_homework_url(homework), class: 'btn btn-xs btn-default' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+

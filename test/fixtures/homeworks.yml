@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+homework_one:
+  teacher: teacher
+  title: MyString
+  question: MyText
+  due_on: 2017-03-17
+
+homework_two:
+  teacher: teacher
+  title: MyString
+  question: MyText
+  due_on: 2017-03-17
