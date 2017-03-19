@@ -1,6 +1,8 @@
 class Homework < ActiveRecord::Base
   belongs_to :teacher
 
+  validates_presence_of :teacher, :title, :question, :due_on
+
   protected
 
   def solutions_latest
