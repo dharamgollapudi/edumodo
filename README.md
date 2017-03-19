@@ -24,8 +24,10 @@ bundle exec rake db:seed
 bundle exex rails s
 ```
 
-Testing:
+Testing: 
 --------
+Tests were written both in `MiniTest::Unit` as well as `Rspec`
+Run the appropriate command.
 ```
 git clone https://github.com/dharamgollapudi/edumodo.git
 cd edumodo
@@ -33,7 +35,17 @@ bundle install
 bundle exec rake db:create
 bundle exec rake db:migrate
 bundle exec rake db:test:prepare
+```
+
+For `MiniTest::Unit` run
+```
 bundle exex rake test
+```
+
+For `Rspec` run
+
+```
+bundle exex rspec
 ```
 
 Caveat:
