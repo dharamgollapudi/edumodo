@@ -7,9 +7,11 @@
 teacher:
   type: Teacher
   email: teacher@gmail.com
+  password: 'teacher'
   encrypted_password: <%= User.new.send(:password_digest, 'teacher') %>
 
 student:
   type: Student
   email: student@gmail.com
+  password: 'student'
   encrypted_password: <%= User.new.send(:password_digest, 'student') %>

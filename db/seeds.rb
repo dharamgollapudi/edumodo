@@ -8,10 +8,12 @@
 
 Teacher.create(
   email: "teacher@gmail.com",
+  password: 'teacher',
   encrypted_password: Teacher.new.send(:password_digest, 'teacher')
 )
 
 Student.create(
   email: "student@gmail.com",
+  password: 'student',
   encrypted_password: Student.new.send(:password_digest, 'student')
 )
