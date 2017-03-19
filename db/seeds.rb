@@ -5,3 +5,13 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Teacher.create(
+  email: "teacher@gmail.com",
+  encrypted_password: Teacher.new.send(:password_digest, 'teacher')
+)
+
+Student.create(
+  email: "student@gmail.com",
+  encrypted_password: Student.new.send(:password_digest, 'student')
+)
