@@ -6,10 +6,10 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-teacher = Teacher.find_or_create_by(email: "teacher@gmail.com") do |t|
-  t.password =  'teacher',
-  t.encrypted_password = Teacher.new.send(:password_digest, 'teacher')
-end
+teacher = Teacher.find_or_initialize_by(email: "teacher@gmail.com")
+teacher.password =  'teacher',
+teacher.encrypted_password = Teacher.new.send(:password_digest, 'teacher')
+teacher.save
 
 if Student.count < 10
   10.times do |i|
