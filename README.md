@@ -1,9 +1,10 @@
-#Edumodo
+Edumodo
+========
 
 The safest and easiest way for educators to connect and collaborate with students, parents, and each other.
 
-
-##TODO:
+TODO:
+-----
 1. [x] Homework contains a title, a question and a due date. Basic UI has been provided.
 2. [x] Teacher can assign a homework to multiple students. Basic UI has been provided.
 3. [x] Student can see all assigned homework. UI is required.
@@ -11,7 +12,8 @@ The safest and easiest way for educators to connect and collaborate with student
 5. [x] Teacher can see a list of latest submissions for a homework. UI is required.
 6. [x] Teacher can see all submission versions for a student for a homework.UI is required.
 
-##Setup:
+Setup:
+------
 ```
 git clone https://github.com/dharamgollapudi/edumodo.git
 cd edumodo
@@ -22,7 +24,8 @@ bundle exec rake db:seed
 bundle exex rails s
 ```
 
-##Testing:
+Testing:
+--------
 ```
 git clone https://github.com/dharamgollapudi/edumodo.git
 cd edumodo
@@ -33,7 +36,16 @@ bundle exec rake db:test:prepare
 bundle exex rake test
 ```
 
-##Caveat:
+Caveat:
+-------
 When you sign up, by default, it setups you up as `Student`. 
 The only way to override, for now, is changing it in database.
 In the next iteration, we should be able to select the type while signing up.
+
+Heorku:
+-------
+Application is running on `heroku` and available at `https://edumodo.herokuapp.com/`
+with the following test accounts:
+
+Teacher: teacher@gmail.com/teacher
+Student: student@gmail.com/student
